@@ -22,7 +22,7 @@
       "targets": [
         {
           "refId": "A",
-          "expr": "sum(rate(exchange_received_total{job=\"exchange\"}[30s]))"
+          "expr": "sum(rate(exchange_received_total{job=~\"exchange|cluster-exchange\"}[30s]))"
         }
       ]
     },
@@ -49,7 +49,7 @@
     },
     {
       "id": 3,
-      "title": "Delivery p95",
+      "title": "Delivery p95 (Compose worker)",
       "type": "timeseries",
       "gridPos": {
         "x": 0,

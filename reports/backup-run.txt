@@ -1,58 +1,58 @@
 {
   "exchange": {
     "restored": true,
-    "archive_bytes": 34719,
-    "messages": 25,
+    "archive_bytes": 2097449,
+    "messages": 7578,
     "receipts": 0,
-    "deliveries": 39
+    "deliveries": 7600
   },
   "collector": {
     "restored": true,
-    "archive_bytes": 23337,
+    "archive_bytes": 1255246,
     "messages": 0,
-    "receipts": 31,
+    "receipts": 7589,
     "deliveries": 0
   },
   "auth": {
     "restored": true,
-    "archive_bytes": 13426,
+    "archive_bytes": 15092,
     "messages": 0,
     "receipts": 0,
     "deliveries": 0
   },
   "devices": {
     "restored": true,
-    "archive_bytes": 13654,
+    "archive_bytes": 15355,
     "messages": 0,
     "receipts": 0,
     "deliveries": 0
   },
   "analytics": {
     "restored": true,
-    "archive_bytes": 18333,
+    "archive_bytes": 21685,
     "messages": 0,
-    "receipts": 4,
+    "receipts": 7,
     "deliveries": 0
   },
   "edge1": {
     "restored": true,
-    "archive_bytes": 19775,
-    "messages": 2,
+    "archive_bytes": 22366,
+    "messages": 3,
     "receipts": 0,
-    "deliveries": 2
+    "deliveries": 3
   },
   "edge2": {
     "restored": true,
-    "archive_bytes": 17554,
-    "messages": 2,
+    "archive_bytes": 20011,
+    "messages": 3,
     "receipts": 0,
-    "deliveries": 2
+    "deliveries": 3
   },
   "edge3": {
     "restored": true,
-    "archive_bytes": 15385,
-    "messages": 2,
+    "archive_bytes": 17453,
+    "messages": 3,
     "receipts": 0,
-    "deliveries": 2
+    "deliveries": 3
   }
 }

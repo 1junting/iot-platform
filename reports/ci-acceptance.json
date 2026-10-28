@@ -1,0 +1,11 @@
+{
+  "build": 2,
+  "result": "SUCCESS",
+  "job": "iot-exchange",
+  "test_summary": [
+    "18 passed, 1 warning in 1.21s"
+  ],
+  "revision": "8780ee751f7e0b05fa20ad67859e45f15c5925db",
+  "deployment_credentials": false,
+  "docker_socket_mounted": false
+}

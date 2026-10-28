@@ -1,0 +1,62 @@
+{
+  "prometheus_targets": [
+    {
+      "job": "exchange",
+      "health": "up"
+    },
+    {
+      "job": "kubernetes-federation",
+      "health": "up"
+    },
+    {
+      "job": "proa",
+      "health": "up"
+    },
+    {
+      "job": "prometheus",
+      "health": "up"
+    },
+    {
+      "job": "services",
+      "health": "up"
+    },
+    {
+      "job": "services",
+      "health": "up"
+    },
+    {
+      "job": "services",
+      "health": "up"
+    },
+    {
+      "job": "services",
+      "health": "up"
+    },
+    {
+      "job": "services",
+      "health": "up"
+    },
+    {
+      "job": "services",
+      "health": "up"
+    },
+    {
+      "job": "services",
+      "health": "up"
+    },
+    {
+      "job": "worker",
+      "health": "up"
+    }
+  ],
+  "grafana_dashboard_panels": 6,
+  "kibana_status": "available",
+  "elasticsearch_indexed_events": 777,
+  "cross_service_trace_id": "0dc6872ea7b64feca7d744c65e4f792e",
+  "trace_services": [
+    "collector",
+    "exchange"
+  ],
+  "firing_alert_id": "a4992476-0f2a-4c03-a87f-730ee8fe5199",
+  "resolved_alert_id": "2934aff8-2b05-4139-a059-7d285db60436"
+}

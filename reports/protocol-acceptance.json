@@ -1,48 +1,48 @@
 {
-  "run": "e2e-d5674c5fa1",
+  "run": "e2e-70b975eaa6",
   "inputs": {
     "http": {
-      "message_id": "e2e-d5674c5fa1-http",
+      "message_id": "e2e-70b975eaa6-http",
       "receiver_protocol": "http",
       "receipts": 1
     },
     "mqtt": {
-      "message_id": "e2e-d5674c5fa1-mqtt",
+      "message_id": "e2e-70b975eaa6-mqtt",
       "receiver_protocol": "mqtt",
       "receipts": 1
     },
     "amqp": {
-      "message_id": "e2e-d5674c5fa1-amqp",
+      "message_id": "e2e-70b975eaa6-amqp",
       "receiver_protocol": "amqp",
       "receipts": 1
     },
     "websocket": {
-      "message_id": "e2e-d5674c5fa1-websocket",
+      "message_id": "e2e-70b975eaa6-websocket",
       "receiver_protocol": "websocket",
       "receipts": 2
     },
     "coap": {
-      "message_id": "e2e-d5674c5fa1-coap",
+      "message_id": "e2e-70b975eaa6-coap",
       "receiver_protocol": "coap",
       "receipts": 1
     },
     "modbus": {
-      "message_id": "a38517fa-be61-472e-acfd-fdf5f5e3a7cf",
+      "message_id": "0ae9c3f3-6c95-4f58-ac00-9a3741aa8de7",
       "receiver_protocol": "modbus",
-      "receipt_id": "22ead2d7-c2dd-435d-b653-c081e80dc811"
+      "receipt_id": "d31bfda3-87f4-4aa2-92f3-90cfc1276ddf"
     },
     "lwm2m": {
-      "message_id": "cdcb01dd-e150-48c7-b6e5-48d9a5b73248",
+      "message_id": "4df6c754-0e1b-4d24-9b70-daa1b993324b",
       "receiver_protocol": "lwm2m",
-      "receipt_id": "d8719928-7847-44ad-a713-ae0e74450b8b"
+      "receipt_id": "71ee50e8-9915-4df9-b7ff-b332a1824f84"
     }
   },
   "outputs": {
-    "mqtt": "23ef6e76-0892-4648-8503-9e02aa1419ae",
-    "websocket": "27e8fe15-a302-42d5-8f96-8932cc65762d",
-    "coap": "4d036984-03b3-4106-be10-89e5efbb7dc7",
-    "http": "981213ab-f4c5-423b-ad37-f9ba125b7c27",
-    "amqp": "d444b8aa-bfba-4485-8508-2270831f93af"
+    "amqp": "1f91e7b0-4be1-4318-94e5-7f1f94789133",
+    "coap": "a5cfca7d-f571-4f36-93dc-ecd48c8a75ef",
+    "mqtt": "dae39d7c-6a06-41d3-821c-1aa8aa58aece",
+    "http": "ad8a58a1-7841-49dd-a0e0-b1df0a4be7d3",
+    "websocket": "fc3cb684-ba30-4283-a022-43b15a83e95e"
   },
   "checks": {
     "dedupe_and_conflict": true,

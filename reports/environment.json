@@ -1,0 +1,435 @@
+{
+  "ServerVersion": "29.8.1",
+  "Architecture": "aarch64",
+  "NCPU": 10,
+  "MemTotal": 8319504384,
+  "OperatingSystem": "Docker Desktop",
+  "git_revision": "8780ee751f7e0b05fa20ad67859e45f15c5925db",
+  "containers": [
+    {
+      "BlockIO": "162MB / 43.6MB",
+      "CPUPerc": "3.04%",
+      "Container": "af5732c3f5733fbbfe04dae3a3d4eb02ecb091aa7947c5e448fd4b30f4cf937e",
+      "ID": "af5732c3f573",
+      "MemPerc": "44.61%",
+      "MemUsage": "312.3MiB / 700MiB",
+      "Name": "iot-exchange-tier3b-1",
+      "NetIO": "91.2MB / 64.1MB",
+      "PIDs": "135"
+    },
+    {
+      "BlockIO": "339MB / 38.2MB",
+      "CPUPerc": "4.39%",
+      "Container": "43ccdc66f3e790259892ab019f94c9ebc60d99d6e18478ab453cb5d4f2864ce8",
+      "ID": "43ccdc66f3e7",
+      "MemPerc": "52.40%",
+      "MemUsage": "366.8MiB / 700MiB",
+      "Name": "iot-exchange-tier2-1",
+      "NetIO": "61.7MB / 49.7MB",
+      "PIDs": "123"
+    },
+    {
+      "BlockIO": "111MB / 15.6MB",
+      "CPUPerc": "3.32%",
+      "Container": "04b7d2dbea2d7839309ef9d4f2fcc2fd399a46cb48dbdc49da90af0e41e30d03",
+      "ID": "04b7d2dbea2d",
+      "MemPerc": "44.17%",
+      "MemUsage": "309.2MiB / 700MiB",
+      "Name": "iot-exchange-tier3a-1",
+      "NetIO": "5.13MB / 3MB",
+      "PIDs": "121"
+    },
+    {
+      "BlockIO": "479MB / 208MB",
+      "CPUPerc": "8.51%",
+      "Container": "20d25da22391397ccb2f69ae8867b7076d4c69acbaeabf3e4d89c4ac3a1aa237",
+      "ID": "20d25da22391",
+      "MemPerc": "73.54%",
+      "MemUsage": "1.005GiB / 1.367GiB",
+      "Name": "iot-exchange-k3s-1",
+      "NetIO": "15.9MB / 32.6MB",
+      "PIDs": "232"
+    },
+    {
+      "BlockIO": "0B / 0B",
+      "CPUPerc": "1.78%",
+      "Container": "6072b6df5fdb39ad5aa270e4f9ad3c3e44ff1a7bdaec3e33499be9edbe930a31",
+      "ID": "6072b6df5fdb",
+      "MemPerc": "0.47%",
+      "MemUsage": "37.27MiB / 7.748GiB",
+      "Name": "iot-exchange-worker-1",
+      "NetIO": "112kB / 118kB",
+      "PIDs": "3"
+    },
+    {
+      "BlockIO": "3.18MB / 25.3MB",
+      "CPUPerc": "7.30%",
+      "Container": "9849642e2191692326e37d166c415536475b75d35ca0d82a660e3d7a83c8f42a",
+      "ID": "9849642e2191",
+      "MemPerc": "0.42%",
+      "MemUsage": "33.57MiB / 7.748GiB",
+      "Name": "iot-exchange-edge1-1",
+      "NetIO": "8.37MB / 9.19MB",
+      "PIDs": "4"
+    },
+    {
+      "BlockIO": "8.29MB / 29MB",
+      "CPUPerc": "6.04%",
+      "Container": "623df7d302e640961b7755b6bd2a929aae90adf45bbd128eb05ed13e4f7de99e",
+      "ID": "623df7d302e6",
+      "MemPerc": "0.37%",
+      "MemUsage": "29.34MiB / 7.748GiB",
+      "Name": "iot-exchange-devices-1",
+      "NetIO": "473kB / 859kB",
+      "PIDs": "3"
+    },
+    {
+      "BlockIO": "9.98MB / 26.5MB",
+      "CPUPerc": "6.38%",
+      "Container": "d09bb35b8629034540f6310f5912c48625065b26742623fe8a433210f1e5cd07",
+      "ID": "d09bb35b8629",
+      "MemPerc": "0.42%",
+      "MemUsage": "33.53MiB / 7.748GiB",
+      "Name": "iot-exchange-edge3-1",
+      "NetIO": "10.4MB / 10.8MB",
+      "PIDs": "8"
+    },
+    {
+      "BlockIO": "6.87MB / 28.6MB",
+      "CPUPerc": "12.85%",
+      "Container": "9c0c8355f0f080004a4397029a62dfac4dc5464257148d0b66e419ef18330183",
+      "ID": "9c0c8355f0f0",
+      "MemPerc": "0.44%",
+      "MemUsage": "34.96MiB / 7.748GiB",
+      "Name": "iot-exchange-exchange-1",
+      "NetIO": "6.1MB / 2.68MB",
+      "PIDs": "7"
+    },
+    {
+      "BlockIO": "7.61MB / 28.4MB",
+      "CPUPerc": "12.01%",
+      "Container": "cabb03a9746e5506824d55ba5bfaf8af843ec10c1054065ef89af5a6b4f5db48",
+      "ID": "cabb03a9746e",
+      "MemPerc": "0.42%",
+      "MemUsage": "33.11MiB / 7.748GiB",
+      "Name": "iot-exchange-analytics-1",
+      "NetIO": "485kB / 873kB",
+      "PIDs": "4"
+    },
+    {
+      "BlockIO": "7.7MB / 24.9MB",
+      "CPUPerc": "0.09%",
+      "Container": "cf27516fbdbb3187914f2e90884a4f26ca07f6efcf24ee61a4c66ff45a6e3536",
+      "ID": "cf27516fbdbb",
+      "MemPerc": "0.64%",
+      "MemUsage": "50.89MiB / 7.748GiB",
+      "Name": "iot-exchange-proa-1",
+      "NetIO": "282kB / 594kB",
+      "PIDs": "12"
+    },
+    {
+      "BlockIO": "6.84MB / 26.1MB",
+      "CPUPerc": "12.83%",
+      "Container": "e6df4b3a0ceb76c93a1caf4bab5417344b82f551a66a42c041bdff95be6d1ecc",
+      "ID": "e6df4b3a0ceb",
+      "MemPerc": "0.41%",
+      "MemUsage": "32.84MiB / 7.748GiB",
+      "Name": "iot-exchange-edge2-1",
+      "NetIO": "8.37MB / 9.19MB",
+      "PIDs": "4"
+    },
+    {
+      "BlockIO": "17.9MB / 0B",
+      "CPUPerc": "0.51%",
+      "Container": "f025ef886d0554376c86fc0c3d36f841c378a4bb98bef7dd748b3b6713947d49",
+      "ID": "f025ef886d05",
+      "MemPerc": "0.65%",
+      "MemUsage": "51.88MiB / 7.748GiB",
+      "Name": "iot-exchange-collector-1",
+      "NetIO": "45.6kB / 55.2kB",
+      "PIDs": "6"
+    },
+    {
+      "BlockIO": "4.76MB / 26.8MB",
+      "CPUPerc": "12.40%",
+      "Container": "7c2012d314354d0f25db13cb58088b309d4c583cf34e24895f53c42cdbd2aa48",
+      "ID": "7c2012d31435",
+      "MemPerc": "0.39%",
+      "MemUsage": "31.32MiB / 7.748GiB",
+      "Name": "iot-exchange-auth-1",
+      "NetIO": "470kB / 857kB",
+      "PIDs": "3"
+    },
+    {
+      "BlockIO": "668MB / 534MB",
+      "CPUPerc": "0.20%",
+      "Container": "9cbbccaf7f57c5e5b8c3e1c90545e0411039812e412da7ab58911cdf3e2fdafe",
+      "ID": "9cbbccaf7f57",
+      "MemPerc": "5.98%",
+      "MemUsage": "474.1MiB / 7.748GiB",
+      "Name": "iot-exchange-jenkins-1",
+      "NetIO": "4.08MB / 991kB",
+      "PIDs": "58"
+    },
+    {
+      "BlockIO": "465MB / 18.8MB",
+      "CPUPerc": "0.06%",
+      "Container": "8162b21eddbe62af2ed75fb6f1da10c2813aab0d036126007838359fe8dda0f5",
+      "ID": "8162b21eddbe",
+      "MemPerc": "1.01%",
+      "MemUsage": "80.51MiB / 7.748GiB",
+      "Name": "iot-exchange-grafana-1",
+      "NetIO": "225kB / 138kB",
+      "PIDs": "16"
+    },
+    {
+      "BlockIO": "150MB / 3.88MB",
+      "CPUPerc": "0.01%",
+      "Container": "d0b284c331aef447a6d3a1a18bb8e50fb1d4afe920fa623cf42a710a7ea28eda",
+      "ID": "d0b284c331ae",
+      "MemPerc": "0.73%",
+      "MemUsage": "57.59MiB / 7.748GiB",
+      "Name": "iot-exchange-jaeger-1",
+      "NetIO": "12.3MB / 4.97MB",
+      "PIDs": "15"
+    },
+    {
+      "BlockIO": "70.1MB / 80.6MB",
+      "CPUPerc": "0.00%",
+      "Container": "24da8d5e977310474bfd10ee86eff131ebc51eb0137c8481d28cac05f9cbe357",
+      "ID": "24da8d5e9773",
+      "MemPerc": "0.19%",
+      "MemUsage": "14.77MiB / 7.748GiB",
+      "Name": "iot-exchange-registry-1",
+      "NetIO": "78.1MB / 310MB",
+      "PIDs": "14"
+    },
+    {
+      "BlockIO": "7.14MB / 14.8MB",
+      "CPUPerc": "0.01%",
+      "Container": "3a70f05062c85c9fb69a952d5dfe22fd4215a81365e68bff86dbe211b74ee267",
+      "ID": "3a70f05062c8",
+      "MemPerc": "0.13%",
+      "MemUsage": "10.41MiB / 7.748GiB",
+      "Name": "iot-exchange-fixtures-1",
+      "NetIO": "122kB / 21.1kB",
+      "PIDs": "3"
+    },
+    {
+      "BlockIO": "295MB / 72.7MB",
+      "CPUPerc": "0.58%",
+      "Container": "3dcc8370ca7e423c444d521cb6841ee3c80fa0dd779711f297d6e282a72f5b98",
+      "ID": "3dcc8370ca7e",
+      "MemPerc": "6.21%",
+      "MemUsage": "493MiB / 7.748GiB",
+      "Name": "iot-exchange-logstash-1",
+      "NetIO": "4.23MB / 3.42MB",
+      "PIDs": "66"
+    },
+    {
+      "BlockIO": "1.05GB / 422MB",
+      "CPUPerc": "1.55%",
+      "Container": "df0ea3eab8919e89aa1a3477b496a51c20533a8d44d387f0e92678fafc9fca79",
+      "ID": "df0ea3eab891",
+      "MemPerc": "6.92%",
+      "MemUsage": "549.4MiB / 7.748GiB",
+      "Name": "iot-exchange-kibana-1",
+      "NetIO": "11.9MB / 81.6MB",
+      "PIDs": "12"
+    },
+    {
+      "BlockIO": "168MB / 11.7MB",
+      "CPUPerc": "0.36%",
+      "Container": "43ee0b8b5ea1cf39f56928311b1174eb24c98c4d9d78b890c9ad1b53c10823f5",
+      "ID": "43ee0b8b5ea1",
+      "MemPerc": "0.65%",
+      "MemUsage": "51.67MiB / 7.748GiB",
+      "Name": "iot-exchange-prometheus-1",
+      "NetIO": "13.3MB / 3.01MB",
+      "PIDs": "16"
+    },
+    {
+      "BlockIO": "384MB / 427MB",
+      "CPUPerc": "0.91%",
+      "Container": "f3eb9d25974584cfc60c3b09d80195eb1759be6b370fc262d85342490879f2d2",
+      "ID": "f3eb9d259745",
+      "MemPerc": "10.04%",
+      "MemUsage": "796.9MiB / 7.748GiB",
+      "Name": "iot-exchange-elasticsearch-1",
+      "NetIO": "84.7MB / 12.5MB",
+      "PIDs": "173"
+    },
+    {
+      "BlockIO": "111MB / 801MB",
+      "CPUPerc": "27.20%",
+      "Container": "58dff796612badba89c3abe096d5cf8dbcf6d481f941075ebba569f6dd055570",
+      "ID": "58dff796612b",
+      "MemPerc": "1.88%",
+      "MemUsage": "149MiB / 7.748GiB",
+      "Name": "iot-exchange-postgres-1",
+      "NetIO": "369MB / 438MB",
+      "PIDs": "6"
+    },
+    {
+      "BlockIO": "9.51MB / 3.36MB",
+      "CPUPerc": "0.00%",
+      "Container": "b9e5eff23ba081a08d944dcee716566e6bbe8de9ac1b30b53d9d8b94c37511bd",
+      "ID": "b9e5eff23ba0",
+      "MemPerc": "0.09%",
+      "MemUsage": "7.469MiB / 7.748GiB",
+      "Name": "iot-exchange-gateway-1",
+      "NetIO": "169kB / 66.6kB",
+      "PIDs": "11"
+    },
+    {
+      "BlockIO": "96MB / 59.7MB",
+      "CPUPerc": "0.21%",
+      "Container": "e54f87b5dd49c0c6e5f97cd2d7f77cc6bf0b8f55e53328a86fb8567e91c78a0f",
+      "ID": "e54f87b5dd49",
+      "MemPerc": "0.98%",
+      "MemUsage": "77.42MiB / 7.748GiB",
+      "Name": "iot-exchange-rabbitmq-1",
+      "NetIO": "266kB / 170kB",
+      "PIDs": "44"
+    },
+    {
+      "BlockIO": "5.88MB / 1.28MB",
+      "CPUPerc": "0.01%",
+      "Container": "062a57e9dd27e9bf17f333f7fe8228420dab8b78d69e06dcd1aa09b87fe4aa5c",
+      "ID": "062a57e9dd27",
+      "MemPerc": "0.03%",
+      "MemUsage": "2.086MiB / 7.748GiB",
+      "Name": "iot-exchange-mqtt-1",
+      "NetIO": "256kB / 79.6kB",
+      "PIDs": "1"
+    }
+  ],
+  "nodes": [
+    {
+      "name": "tier1",
+      "tier": "1",
+      "addresses": [
+        {
+          "address": "10.199.98.10",
+          "type": "InternalIP"
+        },
+        {
+          "address": "exchange-tier1",
+          "type": "Hostname"
+        }
+      ],
+      "ready": "True"
+    },
+    {
+      "name": "tier2",
+      "tier": "2",
+      "addresses": [
+        {
+          "address": "10.199.98.20",
+          "type": "InternalIP"
+        },
+        {
+          "address": "43ccdc66f3e7",
+          "type": "Hostname"
+        }
+      ],
+      "ready": "True"
+    },
+    {
+      "name": "tier3a",
+      "tier": "3",
+      "addresses": [
+        {
+          "address": "10.199.98.30",
+          "type": "InternalIP"
+        },
+        {
+          "address": "04b7d2dbea2d",
+          "type": "Hostname"
+        }
+      ],
+      "ready": "True"
+    },
+    {
+      "name": "tier3b",
+      "tier": "3",
+      "addresses": [
+        {
+          "address": "10.199.98.40",
+          "type": "InternalIP"
+        },
+        {
+          "address": "af5732c3f573",
+          "type": "Hostname"
+        }
+      ],
+      "ready": "True"
+    }
+  ],
+  "pods": [
+    {
+      "name": "cluster-prometheus-6f4c99d88d-jqp9h",
+      "node": "tier1",
+      "images": [
+        "prom/prometheus:v3.2.1"
+      ],
+      "phase": "Running"
+    },
+    {
+      "name": "exchange-worker-74799c5b64-4x4ph",
+      "node": "tier2",
+      "images": [
+        "registry:5000/iot-exchange:db135ca019db2b0a"
+      ],
+      "phase": "Running"
+    },
+    {
+      "name": "exchange-worker-74799c5b64-xklhm",
+      "node": "tier2",
+      "images": [
+        "registry:5000/iot-exchange:db135ca019db2b0a"
+      ],
+      "phase": "Running"
+    },
+    {
+      "name": "hdpcm-exchange-f88d4f85d-b2khz",
+      "node": "tier3b",
+      "images": [
+        "registry:5000/iot-exchange:db135ca019db2b0a"
+      ],
+      "phase": "Running"
+    },
+    {
+      "name": "hdpcm-exchange-f88d4f85d-q4pwq",
+      "node": "tier3b",
+      "images": [
+        "registry:5000/iot-exchange:db135ca019db2b0a"
+      ],
+      "phase": "Running"
+    },
+    {
+      "name": "hdpcm-exchange-f88d4f85d-x5jrr",
+      "node": "tier3a",
+      "images": [
+        "registry:5000/iot-exchange:db135ca019db2b0a"
+      ],
+      "phase": "Running"
+    },
+    {
+      "name": "hdpcm-exchange-f88d4f85d-zsg58",
+      "node": "tier3a",
+      "images": [
+        "registry:5000/iot-exchange:db135ca019db2b0a"
+      ],
+      "phase": "Running"
+    },
+    {
+      "name": "proa-76466f8d8d-6jwvh",
+      "node": "tier1",
+      "images": [
+        "registry:5000/iot-exchange:db135ca019db2b0a"
+      ],
+      "phase": "Running"
+    }
+  ]
+}

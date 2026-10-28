@@ -1,11 +1,11 @@
-time="2026-10-28T15:02:18+08:00" level=warning msg="Found orphan containers (iot-exchange-grafana-1, iot-exchange-jaeger-1, iot-exchange-tier2-1, iot-exchange-tier3a-1, iot-exchange-tier3b-1, iot-exchange-registry-1, iot-exchange-k3s-1, iot-exchange-logstash-1, iot-exchange-kibana-1, iot-exchange-prometheus-1, iot-exchange-elasticsearch-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
- Container iot-exchange-tests-run-83ae234b30e0 Creating 
- Container iot-exchange-tests-run-83ae234b30e0 Created 
-.................                                                        [100%]
+time="2026-10-28T15:33:41+08:00" level=warning msg="Found orphan containers (iot-exchange-tier3a-1, iot-exchange-tier3b-1, iot-exchange-tier2-1, iot-exchange-k3s-1, iot-exchange-jenkins-1, iot-exchange-grafana-1, iot-exchange-jaeger-1, iot-exchange-registry-1, iot-exchange-logstash-1, iot-exchange-kibana-1, iot-exchange-prometheus-1, iot-exchange-elasticsearch-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container iot-exchange-tests-run-04f01b89da6e Creating
+ Container iot-exchange-tests-run-04f01b89da6e Created
+..................                                                       [100%]
 =============================== warnings summary ===============================
 ../usr/local/lib/python3.12/site-packages/starlette/testclient.py:37
   /usr/local/lib/python3.12/site-packages/starlette/testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
     _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-17 passed, 1 warning in 0.87s
+18 passed, 1 warning in 0.90s

@@ -1,0 +1,14 @@
+{
+  "load": {
+    "run": "sustain-de53185fe1",
+    "requests": 7200,
+    "target_rps": 60,
+    "duration_seconds": 129.863,
+    "errors": 0,
+    "note": "Kubernetes NodePort traffic; HPA/PROA snapshots recorded separately."
+  },
+  "independent_collector_receipts": 7200,
+  "max_observed_replicas": 4,
+  "proa_applied_observed": true,
+  "note": "Bounded laboratory load; no claim that prediction outperforms CPU HPA."
+}

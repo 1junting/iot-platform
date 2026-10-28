@@ -1,5 +1,5 @@
 {
-  "message_id": "tier-786fc0be3c",
+  "message_id": "tier-a2aa8771ff",
   "hops": [
     "edge3",
     "edge2",
@@ -20,7 +20,7 @@
         }
       ],
       "operation": "threshold_detection",
-      "processed_at": "2026-10-28T06:42:11.416052+00:00"
+      "processed_at": "2026-10-28T07:08:48.123593+00:00"
     },
     {
       "tier": 1,
@@ -30,6 +30,6 @@
       "model_version": "lab-linear-1"
     }
   ],
-  "collector_delivery_id": "272fba0d-3c85-427c-9d2d-ccced4119bac",
+  "collector_delivery_id": "8e407838-ba01-466f-9d06-15b85447337b",
   "note": "Linear inference uses explicit demonstration weights; no trained industrial model or physical edge hosts claimed."
 }
