@@ -1,0 +1,28 @@
+pipeline {
+  agent any
+  options { disableConcurrentBuilds() }
+  triggers { pollSCM('H/5 * * * *') }
+  stages {
+    stage('Build immutable image') {
+      steps {
+        script { env.IMAGE = 'registry:5000/iot-exchange:' + sh(script: 'git rev-parse HEAD', returnStdout: true).trim() }
+        sh 'docker build -t "$IMAGE" .'
+      }
+    }
+    stage('Contract and transaction tests') {
+      steps {
+        sh '''set +x
+          docker run --rm --env SERVICE_TOKEN --env JWT_SECRET --env ADMIN_PASSWORD \
+            --env DATABASE_URL="$CI_DATABASE_URL" "$IMAGE" python -m pytest -q tests
+        '''
+      }
+    }
+    stage('Publish image') {
+      steps { sh 'docker push "$IMAGE"' }
+    }
+    stage('Deploy and verify') {
+      steps { sh 'python3 scripts/ci_deploy.py' }
+    }
+  }
+  post { always { archiveArtifacts artifacts: 'reports/ci-result.json', allowEmptyArchive: true } }
+}

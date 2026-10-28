@@ -1,0 +1,48 @@
+{
+  "canary_50_50_observed": {
+    "stable": 26,
+    "canary": 34
+  },
+  "circuit_breaker": {
+    "responses": {
+      "404": 1,
+      "500": 9,
+      "503": 30
+    },
+    "ejection_stats": [
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_active: 1",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_consecutive_5xx: 2",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_detected_consecutive_5xx: 2",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_detected_consecutive_gateway_failure: 0",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_detected_consecutive_local_origin_failure: 0",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_detected_failure_percentage: 0",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_detected_local_origin_failure_percentage: 0",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_detected_local_origin_success_rate: 0",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_detected_success_rate: 0",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_enforced_consecutive_5xx: 2",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_enforced_consecutive_gateway_failure: 0",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_enforced_consecutive_local_origin_failure: 0",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_enforced_failure_percentage: 0",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_enforced_local_origin_failure_percentage: 0",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_enforced_local_origin_success_rate: 0",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_enforced_success_rate: 0",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_enforced_total: 2",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_overflow: 0",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_success_rate: 0",
+      "cluster.outbound|8050|canary|hdpcm-exchange.iot-exchange.svc.cluster.local;.outlier_detection.ejections_total: 2"
+    ]
+  },
+  "pod_replacement_seconds": 5.026,
+  "tier3_node_failure_attempt": {
+    "successes": 5,
+    "failures": 5
+  },
+  "tier3_node_failure": {
+    "eventual_successes": 5,
+    "ingest_retries": 0,
+    "transitional_failures": 5,
+    "observed_seconds": 55.027,
+    "independent_delivery_id": "7c14e0cd-84d2-40a3-bd56-6784e4363144"
+  },
+  "limits": "Container-node fault only; control plane and PostgreSQL remain singletons on one physical host."
+}

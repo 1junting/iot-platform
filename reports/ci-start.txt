@@ -1,0 +1,9 @@
+time="2026-10-28T15:02:32+08:00" level=warning msg="Found orphan containers (iot-exchange-tier2-1, iot-exchange-tier3a-1, iot-exchange-tier3b-1, iot-exchange-registry-1, iot-exchange-k3s-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Volume iot-exchange_jenkins-data Creating
+ Volume iot-exchange_jenkins-data Creating
+ Volume iot-exchange_jenkins-data Created
+ Volume iot-exchange_jenkins-data Created
+ Container iot-exchange-jenkins-1 Creating
+ Container iot-exchange-jenkins-1 Created
+ Container iot-exchange-jenkins-1 Starting
+ Container iot-exchange-jenkins-1 Started

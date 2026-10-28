@@ -1,0 +1,419 @@
+{
+  "load": {
+    "run": "sustain-de53185fe1",
+    "requests": 7200,
+    "target_rps": 60,
+    "duration_seconds": 129.863,
+    "errors": 0,
+    "note": "Kubernetes NodePort traffic; HPA/PROA snapshots recorded separately."
+  },
+  "independent_collector_receipts": 7200,
+  "max_observed_replicas": 4,
+  "proa_applied_observed": true,
+  "samples": [
+    {
+      "time": 1793173342.425594,
+      "min_replicas": 2,
+      "current_replicas": 2,
+      "desired_replicas": 2,
+      "cpu_metrics": [
+        {
+          "resource": {
+            "current": {
+              "averageUtilization": 14,
+              "averageValue": "16m"
+            },
+            "name": "cpu"
+          },
+          "type": "Resource"
+        }
+      ],
+      "proa": {
+        "status": "trained",
+        "samples": 168,
+        "applied": true,
+        "forecast_rps": 0.0,
+        "test_mae": 0.0,
+        "baseline_mae": 0.0,
+        "training_samples": 115,
+        "test_samples": 39,
+        "dataset": "live Prometheus samples, chronological 75/25 split",
+        "recommended_replicas": 2,
+        "note": "Experimental model; forecast quality and scaling benefit require workload comparison."
+      }
+    },
+    {
+      "time": 1793173352.5405078,
+      "min_replicas": 2,
+      "current_replicas": 2,
+      "desired_replicas": 2,
+      "cpu_metrics": [
+        {
+          "resource": {
+            "current": {
+              "averageUtilization": 14,
+              "averageValue": "16m"
+            },
+            "name": "cpu"
+          },
+          "type": "Resource"
+        }
+      ],
+      "proa": {
+        "status": "trained",
+        "samples": 173,
+        "applied": true,
+        "forecast_rps": 0.0,
+        "test_mae": 0.0,
+        "baseline_mae": 0.0,
+        "training_samples": 115,
+        "test_samples": 39,
+        "dataset": "live Prometheus samples, chronological 75/25 split",
+        "recommended_replicas": 2,
+        "note": "Experimental model; forecast quality and scaling benefit require workload comparison."
+      }
+    },
+    {
+      "time": 1793173362.635821,
+      "min_replicas": 2,
+      "current_replicas": 2,
+      "desired_replicas": 4,
+      "cpu_metrics": [
+        {
+          "resource": {
+            "current": {
+              "averageUtilization": 315,
+              "averageValue": "347m"
+            },
+            "name": "cpu"
+          },
+          "type": "Resource"
+        }
+      ],
+      "proa": {
+        "status": "trained",
+        "samples": 178,
+        "applied": true,
+        "forecast_rps": 0.0,
+        "test_mae": 0.0,
+        "baseline_mae": 0.0,
+        "training_samples": 115,
+        "test_samples": 39,
+        "dataset": "live Prometheus samples, chronological 75/25 split",
+        "recommended_replicas": 2,
+        "note": "Experimental model; forecast quality and scaling benefit require workload comparison."
+      }
+    },
+    {
+      "time": 1793173372.8059149,
+      "min_replicas": 2,
+      "current_replicas": 4,
+      "desired_replicas": 4,
+      "cpu_metrics": [
+        {
+          "resource": {
+            "current": {
+              "averageUtilization": 554,
+              "averageValue": "610m"
+            },
+            "name": "cpu"
+          },
+          "type": "Resource"
+        }
+      ],
+      "proa": {
+        "status": "trained",
+        "samples": 183,
+        "applied": true,
+        "forecast_rps": 0.0,
+        "test_mae": 0.0,
+        "baseline_mae": 0.0,
+        "training_samples": 115,
+        "test_samples": 39,
+        "dataset": "live Prometheus samples, chronological 75/25 split",
+        "recommended_replicas": 2,
+        "note": "Experimental model; forecast quality and scaling benefit require workload comparison."
+      }
+    },
+    {
+      "time": 1793173382.9262679,
+      "min_replicas": 2,
+      "current_replicas": 4,
+      "desired_replicas": 4,
+      "cpu_metrics": [
+        {
+          "resource": {
+            "current": {
+              "averageUtilization": 554,
+              "averageValue": "610m"
+            },
+            "name": "cpu"
+          },
+          "type": "Resource"
+        }
+      ],
+      "proa": {
+        "status": "trained",
+        "samples": 188,
+        "applied": true,
+        "forecast_rps": 0.0,
+        "test_mae": 10.355232475955399,
+        "baseline_mae": 1.2156521739130435,
+        "training_samples": 138,
+        "test_samples": 46,
+        "dataset": "live Prometheus samples, chronological 75/25 split",
+        "recommended_replicas": 2,
+        "note": "Experimental model; forecast quality and scaling benefit require workload comparison."
+      }
+    },
+    {
+      "time": 1793173393.081481,
+      "min_replicas": 2,
+      "current_replicas": 4,
+      "desired_replicas": 4,
+      "cpu_metrics": [
+        {
+          "resource": {
+            "current": {
+              "averageUtilization": 189,
+              "averageValue": "208m"
+            },
+            "name": "cpu"
+          },
+          "type": "Resource"
+        }
+      ],
+      "proa": {
+        "status": "trained",
+        "samples": 193,
+        "applied": true,
+        "forecast_rps": 0.0,
+        "test_mae": 10.355232475955399,
+        "baseline_mae": 1.2156521739130435,
+        "training_samples": 138,
+        "test_samples": 46,
+        "dataset": "live Prometheus samples, chronological 75/25 split",
+        "recommended_replicas": 2,
+        "note": "Experimental model; forecast quality and scaling benefit require workload comparison."
+      }
+    },
+    {
+      "time": 1793173403.186555,
+      "min_replicas": 2,
+      "current_replicas": 4,
+      "desired_replicas": 4,
+      "cpu_metrics": [
+        {
+          "resource": {
+            "current": {
+              "averageUtilization": 143,
+              "averageValue": "158m"
+            },
+            "name": "cpu"
+          },
+          "type": "Resource"
+        }
+      ],
+      "proa": {
+        "status": "trained",
+        "samples": 198,
+        "applied": true,
+        "forecast_rps": 0.0,
+        "test_mae": 10.355232475955399,
+        "baseline_mae": 1.2156521739130435,
+        "training_samples": 138,
+        "test_samples": 46,
+        "dataset": "live Prometheus samples, chronological 75/25 split",
+        "recommended_replicas": 2,
+        "note": "Experimental model; forecast quality and scaling benefit require workload comparison."
+      }
+    },
+    {
+      "time": 1793173413.432906,
+      "min_replicas": 2,
+      "current_replicas": 4,
+      "desired_replicas": 4,
+      "cpu_metrics": [
+        {
+          "resource": {
+            "current": {
+              "averageUtilization": 143,
+              "averageValue": "158m"
+            },
+            "name": "cpu"
+          },
+          "type": "Resource"
+        }
+      ],
+      "proa": {
+        "status": "trained",
+        "samples": 203,
+        "applied": true,
+        "forecast_rps": 0.0,
+        "test_mae": 10.355232475955399,
+        "baseline_mae": 1.2156521739130435,
+        "training_samples": 138,
+        "test_samples": 46,
+        "dataset": "live Prometheus samples, chronological 75/25 split",
+        "recommended_replicas": 2,
+        "note": "Experimental model; forecast quality and scaling benefit require workload comparison."
+      }
+    },
+    {
+      "time": 1793173423.5450618,
+      "min_replicas": 2,
+      "current_replicas": 4,
+      "desired_replicas": 4,
+      "cpu_metrics": [
+        {
+          "resource": {
+            "current": {
+              "averageUtilization": 145,
+              "averageValue": "159m"
+            },
+            "name": "cpu"
+          },
+          "type": "Resource"
+        }
+      ],
+      "proa": {
+        "status": "trained",
+        "samples": 208,
+        "applied": true,
+        "forecast_rps": 0.0,
+        "test_mae": 10.355232475955399,
+        "baseline_mae": 1.2156521739130435,
+        "training_samples": 138,
+        "test_samples": 46,
+        "dataset": "live Prometheus samples, chronological 75/25 split",
+        "recommended_replicas": 2,
+        "note": "Experimental model; forecast quality and scaling benefit require workload comparison."
+      }
+    },
+    {
+      "time": 1793173433.675616,
+      "min_replicas": 2,
+      "current_replicas": 4,
+      "desired_replicas": 4,
+      "cpu_metrics": [
+        {
+          "resource": {
+            "current": {
+              "averageUtilization": 148,
+              "averageValue": "163m"
+            },
+            "name": "cpu"
+          },
+          "type": "Resource"
+        }
+      ],
+      "proa": {
+        "status": "trained",
+        "samples": 213,
+        "applied": true,
+        "forecast_rps": 0.0,
+        "test_mae": 10.355232475955399,
+        "baseline_mae": 1.2156521739130435,
+        "training_samples": 138,
+        "test_samples": 46,
+        "dataset": "live Prometheus samples, chronological 75/25 split",
+        "recommended_replicas": 2,
+        "note": "Experimental model; forecast quality and scaling benefit require workload comparison."
+      }
+    },
+    {
+      "time": 1793173443.7864478,
+      "min_replicas": 2,
+      "current_replicas": 4,
+      "desired_replicas": 4,
+      "cpu_metrics": [
+        {
+          "resource": {
+            "current": {
+              "averageUtilization": 148,
+              "averageValue": "163m"
+            },
+            "name": "cpu"
+          },
+          "type": "Resource"
+        }
+      ],
+      "proa": {
+        "status": "trained",
+        "samples": 218,
+        "applied": true,
+        "forecast_rps": 0.0,
+        "test_mae": 39.48724365940428,
+        "baseline_mae": 1.097037037037037,
+        "training_samples": 160,
+        "test_samples": 54,
+        "dataset": "live Prometheus samples, chronological 75/25 split",
+        "recommended_replicas": 2,
+        "note": "Experimental model; forecast quality and scaling benefit require workload comparison."
+      }
+    },
+    {
+      "time": 1793173453.920087,
+      "min_replicas": 2,
+      "current_replicas": 4,
+      "desired_replicas": 4,
+      "cpu_metrics": [
+        {
+          "resource": {
+            "current": {
+              "averageUtilization": 146,
+              "averageValue": "160m"
+            },
+            "name": "cpu"
+          },
+          "type": "Resource"
+        }
+      ],
+      "proa": {
+        "status": "trained",
+        "samples": 223,
+        "applied": true,
+        "forecast_rps": 0.0,
+        "test_mae": 39.48724365940428,
+        "baseline_mae": 1.097037037037037,
+        "training_samples": 160,
+        "test_samples": 54,
+        "dataset": "live Prometheus samples, chronological 75/25 split",
+        "recommended_replicas": 2,
+        "note": "Experimental model; forecast quality and scaling benefit require workload comparison."
+      }
+    },
+    {
+      "time": 1793173464.036105,
+      "min_replicas": 2,
+      "current_replicas": 4,
+      "desired_replicas": 4,
+      "cpu_metrics": [
+        {
+          "resource": {
+            "current": {
+              "averageUtilization": 145,
+              "averageValue": "160m"
+            },
+            "name": "cpu"
+          },
+          "type": "Resource"
+        }
+      ],
+      "proa": {
+        "status": "trained",
+        "samples": 228,
+        "applied": true,
+        "forecast_rps": 0.0,
+        "test_mae": 39.48724365940428,
+        "baseline_mae": 1.097037037037037,
+        "training_samples": 160,
+        "test_samples": 54,
+        "dataset": "live Prometheus samples, chronological 75/25 split",
+        "recommended_replicas": 2,
+        "note": "Experimental model; forecast quality and scaling benefit require workload comparison."
+      }
+    }
+  ],
+  "note": "Bounded laboratory load; no claim that prediction outperforms CPU HPA."
+}

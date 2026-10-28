@@ -1,0 +1,7 @@
+deployment "hdpcm-exchange" successfully rolled out
+
+deployment "exchange-worker" successfully rolled out
+
+deployment "proa" successfully rolled out
+
+Cluster deployments ready; image=db135ca019db2b0a

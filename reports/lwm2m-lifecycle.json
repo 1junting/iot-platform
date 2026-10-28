@@ -1,0 +1,7 @@
+{
+  "endpoint": "lifecycle-8c97e3e5ab80",
+  "register": "2.01 Created",
+  "update": "2.04 Changed",
+  "expired_read_rejected": true,
+  "deregister": "2.02 Deleted"
+}

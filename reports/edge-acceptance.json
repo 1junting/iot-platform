@@ -1,0 +1,35 @@
+{
+  "message_id": "tier-a2aa8771ff",
+  "hops": [
+    "edge3",
+    "edge2",
+    "edge1",
+    "exchange"
+  ],
+  "processing": [
+    {
+      "tier": 2,
+      "anomalies": [
+        {
+          "field": "temperature",
+          "value": 45,
+          "bounds": {
+            "max": 40,
+            "min": 0
+          }
+        }
+      ],
+      "operation": "threshold_detection",
+      "processed_at": "2026-10-28T07:08:48.123593+00:00"
+    },
+    {
+      "tier": 1,
+      "score": 0.4,
+      "operation": "linear_inference",
+      "model_loaded": true,
+      "model_version": "lab-linear-1"
+    }
+  ],
+  "collector_delivery_id": "8e407838-ba01-466f-9d06-15b85447337b",
+  "note": "Linear inference uses explicit demonstration weights; no trained industrial model or physical edge hosts claimed."
+}

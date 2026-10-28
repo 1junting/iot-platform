@@ -1,0 +1,15 @@
+services:
+  jenkins:
+    build: {context: ., dockerfile: infrastructure/jenkins/Dockerfile}
+    environment:
+      JAVA_OPTS: '-Djenkins.install.runSetupWizard=false -Xmx384m'
+      JENKINS_PASSWORD: ${JENKINS_PASSWORD}
+      CI_DATABASE_URL: ${CI_DATABASE_URL:-}
+      SERVICE_TOKEN: ${CI_SERVICE_TOKEN:-isolated-test-token}
+      JWT_SECRET: ${CI_JWT_SECRET:-isolated-test-signing-key-with-32-chars}
+      ADMIN_PASSWORD: ${CI_ADMIN_PASSWORD:-isolated-test-password}
+    ports: ['127.0.0.1:8098:8080']
+    volumes: [jenkins-data:/var/jenkins_home]
+    networks: [lab]
+volumes:
+  jenkins-data: {}

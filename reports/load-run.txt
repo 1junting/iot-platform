@@ -1,0 +1,71 @@
+time="2026-10-28T15:08:48+08:00" level=warning msg="Found orphan containers (iot-exchange-jenkins-1, iot-exchange-grafana-1, iot-exchange-jaeger-1, iot-exchange-tier2-1, iot-exchange-tier3a-1, iot-exchange-tier3b-1, iot-exchange-registry-1, iot-exchange-k3s-1, iot-exchange-logstash-1, iot-exchange-kibana-1, iot-exchange-prometheus-1, iot-exchange-elasticsearch-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container iot-exchange-tests-run-522315e0c4cf Creating
+ Container iot-exchange-tests-run-522315e0c4cf Created
+{
+  "run": "load-e6e73860b6",
+  "python": "3.12.16",
+  "platform": "Linux-7.0.14-linuxkit-aarch64-with-glibc2.41",
+  "hardware": "Docker Desktop VM; host CPU and memory recorded separately",
+  "levels": [
+    {
+      "concurrency": 1,
+      "messages": 20,
+      "payload_bytes": 176,
+      "ingress_rps": 88.3,
+      "destination_rps": 38.286,
+      "errors": 0,
+      "ingress_latency": {
+        "p50_ms": 10.884,
+        "p95_ms": 12.702,
+        "p99_ms": 12.948
+      },
+      "destination_observed_latency": {
+        "p50_ms": 176.412,
+        "p95_ms": 236.335,
+        "p99_ms": 244.976
+      },
+      "receipt_poll_interval_ms": 100,
+      "max_observed_pending": 3
+    },
+    {
+      "concurrency": 5,
+      "messages": 50,
+      "payload_bytes": 176,
+      "ingress_rps": 164.213,
+      "destination_rps": 66.182,
+      "errors": 0,
+      "ingress_latency": {
+        "p50_ms": 28.789,
+        "p95_ms": 41.406,
+        "p99_ms": 44.983
+      },
+      "destination_observed_latency": {
+        "p50_ms": 270.845,
+        "p95_ms": 335.946,
+        "p99_ms": 351.921
+      },
+      "receipt_poll_interval_ms": 100,
+      "max_observed_pending": 23
+    },
+    {
+      "concurrency": 10,
+      "messages": 100,
+      "payload_bytes": 177,
+      "ingress_rps": 181.125,
+      "destination_rps": 85.09,
+      "errors": 0,
+      "ingress_latency": {
+        "p50_ms": 55.506,
+        "p95_ms": 69.382,
+        "p99_ms": 83.792
+      },
+      "destination_observed_latency": {
+        "p50_ms": 511.149,
+        "p95_ms": 599.853,
+        "p99_ms": 626.122
+      },
+      "receipt_poll_interval_ms": 100,
+      "max_observed_pending": 59
+    }
+  ]
+}

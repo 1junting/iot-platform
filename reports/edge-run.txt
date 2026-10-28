@@ -1,0 +1,38 @@
+time="2026-10-28T15:08:47+08:00" level=warning msg="Found orphan containers (iot-exchange-jenkins-1, iot-exchange-grafana-1, iot-exchange-jaeger-1, iot-exchange-tier2-1, iot-exchange-tier3a-1, iot-exchange-tier3b-1, iot-exchange-registry-1, iot-exchange-k3s-1, iot-exchange-logstash-1, iot-exchange-kibana-1, iot-exchange-prometheus-1, iot-exchange-elasticsearch-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container iot-exchange-tests-run-2bc6ccabb2d7 Creating
+ Container iot-exchange-tests-run-2bc6ccabb2d7 Created
+{
+  "message_id": "tier-a2aa8771ff",
+  "hops": [
+    "edge3",
+    "edge2",
+    "edge1",
+    "exchange"
+  ],
+  "processing": [
+    {
+      "tier": 2,
+      "anomalies": [
+        {
+          "field": "temperature",
+          "value": 45,
+          "bounds": {
+            "max": 40,
+            "min": 0
+          }
+        }
+      ],
+      "operation": "threshold_detection",
+      "processed_at": "2026-10-28T07:08:48.123593+00:00"
+    },
+    {
+      "tier": 1,
+      "score": 0.4,
+      "operation": "linear_inference",
+      "model_loaded": true,
+      "model_version": "lab-linear-1"
+    }
+  ],
+  "collector_delivery_id": "8e407838-ba01-466f-9d06-15b85447337b",
+  "note": "Linear inference uses explicit demonstration weights; no trained industrial model or physical edge hosts claimed."
+}
