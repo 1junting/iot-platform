@@ -31,3 +31,5 @@ docker compose --profile test run --rm --no-deps tests python scripts/retention.
 Kubernetes 只存在於本專案的 k3s 容器，不設定主機全域 context。四個容器節點共用同一主機；真實場域要將 Tier 3 的 DB／接入程序部署在現場獨立主機，配置時間同步、節點標籤、站點來源及持久儲存，再重新跑網路中斷、主機故障與效能驗收。控制平面及 PostgreSQL HA 尚未在本機配置。
 
 PROA 的容量參數預設 20 rps，為實驗設定，不能直接當作主機容量。看 test_mae、baseline_mae、預測曲線及冷啟動時間後，才能評估是否優於原生 HPA。更換場域必須重新採樣、校準與比較；示範線性模型也必須換成受驗證的應用模型。
+
+Kubernetes 容器節點另使用 `10.199.98.0/24` 固定位址網路，並以各自 named volume 保存 `/etc/rancher/node` 身份。這避免容器重啟 IP 漂移及 recreate 後節點密碼遺失。若此網段與部署環境衝突，先調整 compose.cluster.yaml 全部節點位址與 subnet，再建置全新叢集；不要直接更動運行中場域路由。

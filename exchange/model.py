@@ -48,7 +48,7 @@ def decode(raw: bytes, codec: str) -> dict:
             raise ValueError('Trailing CBOR data')
     elif codec == 'xml':
         try:
-            root = ElementTree.fromstring(raw)
+            root = ElementTree.fromstring(raw, forbid_dtd=True)
         except (DefusedXmlException, ParseError):
             raise ValueError('Invalid or unsafe XML') from None
         if root.tag != 'message':

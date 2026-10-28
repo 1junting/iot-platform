@@ -13,6 +13,8 @@ key='sustain-'+uuid.uuid4().hex[:10]
 client=httpx.Client(headers=headers,timeout=10)
 response=client.put('http://exchange:8050/api/v1/routes/'+key,json={'expected_version':0,'device_prefix':key,'destination':{'protocol':'http','url':'http://collector:8050/receipts'}})
 response.raise_for_status()
+rate=int(os.getenv('LOAD_RPS','60'))
+seconds=int(os.getenv('LOAD_SECONDS','120'))
 start=time.monotonic()
 errors=[]
 latencies=[]
@@ -29,11 +31,11 @@ def send(index):
 
 with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
     futures=[]
-    for index in range(2400):
+    for index in range(rate*seconds):
         futures.append(pool.submit(send,index))
-        delay=start+(index+1)/20-time.monotonic()
+        delay=start+(index+1)/rate-time.monotonic()
         if delay>0: time.sleep(delay)
     results=[future.result() for future in futures]
-report={'run':key,'requests':len(results),'target_rps':20,'duration_seconds':round(time.monotonic()-start,3),'errors':sum(status!=200 for status,_ in results),'note':'Kubernetes NodePort traffic; HPA/PROA snapshots recorded separately.'}
+report={'run':key,'requests':len(results),'target_rps':rate,'duration_seconds':round(time.monotonic()-start,3),'errors':sum(status!=200 for status,_ in results),'note':'Kubernetes NodePort traffic; HPA/PROA snapshots recorded separately.'}
 Path('/reports/sustained-load.json').write_text(json.dumps(report,indent=2))
 print(json.dumps(report))

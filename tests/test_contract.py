@@ -56,3 +56,8 @@ def test_nested_profile_and_unsafe_xml():
     assert result['values']['temperature']['value'] == pytest.approx(35)
     with pytest.raises(ValueError, match='unsafe XML'):
         decode(b'<!DOCTYPE message [<!ENTITY a SYSTEM "file:///etc/passwd">]><message>&a;</message>', 'xml')
+
+
+def test_empty_dtd_is_rejected():
+    with pytest.raises(ValueError, match='unsafe XML'):
+        decode(b'<!DOCTYPE message><message><message_id>dtd</message_id><device_id>fixture</device_id><values><field name="a">x</field></values></message>', 'xml')

@@ -52,7 +52,7 @@ python3 scripts/recovery.py
 python3 scripts/backup.py
 ```
 
-第一個指令執行契約／PostgreSQL 交易測試、七協定與五輸出收件、三級邊緣鏈路及分級壓測。恢復測試只暫停本專案服務；若已啟用 Kubernetes workers，請先暫停那些 workers，避免干擾受控中斷測試。備份會還原到新建的一次性資料庫，不覆蓋運行資料。
+第一個指令執行契約／PostgreSQL 交易測試、七協定與五輸出收件、三級邊緣鏈路及分級壓測。恢復測試只暫停本專案服務；會暫停本專案 Kubernetes workers，並在 finally 恢復原副本數。請勿與其他負載測試同時執行。備份會還原到新建的一次性資料庫，不覆蓋運行資料。
 
 `reports/` 保存當次實測資料；`reports/private/` 保存不進 Git 的備份與機敏暫存檔。既有專案、資料卷與 Git 倉庫均不使用本專案名稱。
 

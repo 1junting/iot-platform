@@ -12,6 +12,7 @@ for output, command in [
     ('unit-tests.txt',['python','-m','pytest','-q','tests']),
     ('protocol-run.txt',['python','scripts/acceptance.py']),
     ('edge-run.txt',['python','scripts/edge_acceptance.py']),
+    ('lwm2m-run.txt',['python','scripts/lwm2m_lifecycle.py']),
     ('load-run.txt',['python','scripts/load.py'])]:
     with (report / output).open('w') as stream:
         subprocess.run(dc + ['run','--rm','--no-deps','tests'] + command,

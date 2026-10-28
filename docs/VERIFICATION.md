@@ -4,7 +4,7 @@
 
 | 項目 | 狀態與證據 |
 | --- | --- |
-| 契約／授權／PostgreSQL 交易 | 17 passed；一次性 schema，不修改運行資料；unit-tests.txt |
+| 契約／授權／PostgreSQL 交易 | 18 passed；一次性 schema，不修改運行資料；unit-tests.txt |
 | 七協定來源 | HTTP、MQTT、AMQP、WebSocket、CoAP、Modbus TCP Register Map、LwM2M Registration／Resource Read；protocol-acceptance.json |
 | 五協定目的端 | HTTP、MQTT、AMQP、WebSocket、CoAP 的獨立 collector 持久收據；Broker ACK 與 consumer 收件分開 |
 | 三級邊緣 | edge3→edge2→edge1→exchange→collector／analytics；閾值事件、配置模型結果與完整 hops；edge-acceptance.json |
@@ -12,7 +12,10 @@
 | 備份 | 八服務各自 pg_dump，逐份還原到新建臨時 DB 查核；backup-verification.json |
 | 分級負載 | 並行 1／5／10，筆數 20／50／100；接受與目的端延遲分開；load-report.json |
 | 真正 Kubernetes | 四個容器節點、接入 Pod 分散兩個 Tier 3、獨立 Tier 2 workers、Tier 1 PROA、逐 Pod Prometheus；cluster-deploy.txt |
-| Istio、監控與 CI | 最終動態驗收結果將補於此文件與各份報告，不以配置檔存在視為通過 |
+| 監控／日誌／追蹤 | 12 個 targets up、Grafana 六面板、ELK 可搜尋、跨服務 Jaeger、firing／resolved 通知持久收件；observability-acceptance.json |
+| Jenkins CI | build 1 SUCCESS，從 Git 提交執行 17 項當時測試；未取得部署憑證；ci-acceptance.json |
+| LwM2M 生命週期 | 註冊、更新、過期 Read 拒絕、解除註冊；lwm2m-lifecycle.json |
+| Istio／故障／擴展 | 最終動態結果補入各報告，不以配置檔存在視為通過 |
 
 目前通過的故障演練只操作本專案。沒有刪除舊資料卷、調整既有 Sender 群組或變更其他專案。
 

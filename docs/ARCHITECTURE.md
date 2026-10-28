@@ -25,7 +25,7 @@ flowchart LR
 
 Tier 3 可就近接入；Tier 2 執行明確閾值規則；Tier 1 按部署的模型權重計算。範例線性模型的權重是示範配置，不能作為工業 AI 精度成果。資料不必一律通過全部層級，路由可直接交付中央或其他目的端。
 
-Kubernetes 實驗包含 Tier 1 控制節點、Tier 2 worker 節點，以及兩個 Tier 3 接入節點。Node affinity 指定角色，偏好反親和讓副本分布到不同 Tier 3 節點。共享 PostgreSQL 支援跨 Pod 的 `FOR UPDATE SKIP LOCKED` 與過期租約；不是以跨主機共用 SQLite 取代資料庫。
+Kubernetes 實驗包含 Tier 1 控制節點、Tier 2 worker 節點，以及兩個 Tier 3 接入節點。Node affinity 指定角色，拓撲分布約束與反親和讓副本分布到不同 Tier 3 節點，Gateway 也有跨節點雙副本。共享 PostgreSQL 支援跨 Pod 的 `FOR UPDATE SKIP LOCKED` 與過期租約；不是以跨主機共用 SQLite 取代資料庫。
 
 每筆接入與 Outbox 同交易提交。Worker 在交易外連線，成功後依租約 token 更新；過期 worker 不能覆寫新 worker 的結果。每個目的端有固定 UUID 投遞 ID 與設定快照。重送採至少一次語意，下游以投遞 ID 去重。永久 DEAD 工作由管理 API 重放。
 

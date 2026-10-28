@@ -52,6 +52,13 @@ def receipts(key):
 
 def main():
     result = {'run': PREFIX}
+    cluster_command = ['docker','exec','iot-exchange-k3s-1','kubectl','-n','iot-exchange']
+    probe = subprocess.run(cluster_command+['get','deployment','exchange-worker','-o','json'],capture_output=True)
+    cluster_replicas = None
+    if probe.returncode == 0:
+        cluster_replicas = json.loads(probe.stdout)['spec'].get('replicas',1)
+        subprocess.run(cluster_command+['scale','deployment/exchange-worker','--replicas=0'],capture_output=True,check=True)
+        subprocess.run(cluster_command+['rollout','status','deployment/exchange-worker','--timeout=60s'],capture_output=True,check=True)
     try:
         for name in ('collector', 'analytics'):
             api(8110, '/api/v1/routes/' + PREFIX + '-' + name,
@@ -97,6 +104,8 @@ def main():
         print(json.dumps(result, indent=2))
     finally:
         dc('start', 'collector', 'worker', check=False)
+        if cluster_replicas is not None:
+            subprocess.run(cluster_command+['scale','deployment/exchange-worker','--replicas='+str(cluster_replicas)],capture_output=True,check=False)
 
 
 if __name__ == '__main__':

@@ -27,6 +27,13 @@ spec:
     metadata: {labels: {app: hdpcm-exchange, version: stable}}
     spec:
       automountServiceAccountToken: false
+      topologySpreadConstraints:
+        - maxSkew: 1
+          minDomains: 2
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: DoNotSchedule
+          nodeTaintsPolicy: Honor
+          labelSelector: {matchLabels: {app: hdpcm-exchange, version: stable}}
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -149,6 +156,7 @@ spec:
         - destination: {host: hdpcm-exchange, subset: canary}
           weight: 0
       timeout: 10s
+      retries: {attempts: 2, perTryTimeout: 2s, retryOn: 'connect-failure,reset,refused-stream,503,504'}
 ---
 apiVersion: networking.istio.io/v1
 kind: Gateway
@@ -172,6 +180,7 @@ spec:
         - destination: {host: hdpcm-exchange, port: {number: 8050}, subset: canary}
           weight: 0
       timeout: 10s
+      retries: {attempts: 2, perTryTimeout: 2s, retryOn: 'connect-failure,reset,refused-stream,503,504'}
 ---
 apiVersion: v1
 kind: ServiceAccount
