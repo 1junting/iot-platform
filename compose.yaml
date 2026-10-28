@@ -1,0 +1,531 @@
+name: iot-exchange
+services:
+  exchange:
+    image: iot-exchange-app:local
+    build: .
+    environment: &id001
+      SERVICE_TOKEN: ${SERVICE_TOKEN}
+      JWT_SECRET: ${JWT_SECRET}
+      AMQP_URL: amqp://lab:${RABBITMQ_PASSWORD}@rabbitmq:5672/%2F
+      MQTT_HOST: mqtt
+      LOG_HOST: logstash
+      SERVICE_NAME: exchange
+      SERVICE_ROLE: exchange
+      DATABASE_URL: postgresql://exchange_app:${EXCHANGE_DB_PASSWORD}@postgres:5432/exchange
+      RUN_WORKER: 'false'
+    networks:
+    - lab
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+    - /tmp
+    cap_drop:
+    - ALL
+    security_opt:
+    - no-new-privileges:true
+    command:
+    - uvicorn
+    - exchange.api:app
+    - --host
+    - 0.0.0.0
+    - --port
+    - '8050'
+    - --no-access-log
+    - --ws-max-size
+    - '262144'
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mqtt:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://localhost:8050/health',timeout=3)
+      interval: 5s
+      timeout: 4s
+      retries: 20
+    ports:
+    - 127.0.0.1:8110:8050
+    - 127.0.0.1:5698:5683/udp
+  auth:
+    image: iot-exchange-app:local
+    build: .
+    environment:
+      SERVICE_TOKEN: ${SERVICE_TOKEN}
+      JWT_SECRET: ${JWT_SECRET}
+      AMQP_URL: amqp://lab:${RABBITMQ_PASSWORD}@rabbitmq:5672/%2F
+      MQTT_HOST: mqtt
+      LOG_HOST: logstash
+      SERVICE_NAME: auth
+      SERVICE_ROLE: auth
+      DATABASE_URL: postgresql://auth_app:${AUTH_DB_PASSWORD}@postgres:5432/auth
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    networks:
+    - lab
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+    - /tmp
+    cap_drop:
+    - ALL
+    security_opt:
+    - no-new-privileges:true
+    command:
+    - uvicorn
+    - exchange.api:app
+    - --host
+    - 0.0.0.0
+    - --port
+    - '8050'
+    - --no-access-log
+    - --ws-max-size
+    - '262144'
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://localhost:8050/health',timeout=3)
+      interval: 5s
+      timeout: 4s
+      retries: 20
+  devices:
+    image: iot-exchange-app:local
+    build: .
+    environment:
+      SERVICE_TOKEN: ${SERVICE_TOKEN}
+      JWT_SECRET: ${JWT_SECRET}
+      AMQP_URL: amqp://lab:${RABBITMQ_PASSWORD}@rabbitmq:5672/%2F
+      MQTT_HOST: mqtt
+      LOG_HOST: logstash
+      SERVICE_NAME: devices
+      SERVICE_ROLE: devices
+      DATABASE_URL: postgresql://devices_app:${DEVICES_DB_PASSWORD}@postgres:5432/devices
+    networks:
+    - lab
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+    - /tmp
+    cap_drop:
+    - ALL
+    security_opt:
+    - no-new-privileges:true
+    command:
+    - uvicorn
+    - exchange.api:app
+    - --host
+    - 0.0.0.0
+    - --port
+    - '8050'
+    - --no-access-log
+    - --ws-max-size
+    - '262144'
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://localhost:8050/health',timeout=3)
+      interval: 5s
+      timeout: 4s
+      retries: 20
+  analytics:
+    image: iot-exchange-app:local
+    build: .
+    environment:
+      SERVICE_TOKEN: ${SERVICE_TOKEN}
+      JWT_SECRET: ${JWT_SECRET}
+      AMQP_URL: amqp://lab:${RABBITMQ_PASSWORD}@rabbitmq:5672/%2F
+      MQTT_HOST: mqtt
+      LOG_HOST: logstash
+      SERVICE_NAME: analytics
+      SERVICE_ROLE: analytics
+      DATABASE_URL: postgresql://analytics_app:${ANALYTICS_DB_PASSWORD}@postgres:5432/analytics
+    networks:
+    - lab
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+    - /tmp
+    cap_drop:
+    - ALL
+    security_opt:
+    - no-new-privileges:true
+    command:
+    - uvicorn
+    - exchange.api:app
+    - --host
+    - 0.0.0.0
+    - --port
+    - '8050'
+    - --no-access-log
+    - --ws-max-size
+    - '262144'
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://localhost:8050/health',timeout=3)
+      interval: 5s
+      timeout: 4s
+      retries: 20
+  collector:
+    image: iot-exchange-app:local
+    build: .
+    environment:
+      SERVICE_TOKEN: ${SERVICE_TOKEN}
+      JWT_SECRET: ${JWT_SECRET}
+      AMQP_URL: amqp://lab:${RABBITMQ_PASSWORD}@rabbitmq:5672/%2F
+      MQTT_HOST: mqtt
+      LOG_HOST: logstash
+      SERVICE_NAME: collector
+      SERVICE_ROLE: collector
+      DATABASE_URL: postgresql://collector_app:${COLLECTOR_DB_PASSWORD}@postgres:5432/collector
+    networks:
+    - lab
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+    - /tmp
+    cap_drop:
+    - ALL
+    security_opt:
+    - no-new-privileges:true
+    command:
+    - uvicorn
+    - exchange.api:app
+    - --host
+    - 0.0.0.0
+    - --port
+    - '8050'
+    - --no-access-log
+    - --ws-max-size
+    - '262144'
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mqtt:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://localhost:8050/health',timeout=3)
+      interval: 5s
+      timeout: 4s
+      retries: 20
+    ports:
+    - 127.0.0.1:8111:8050
+    - 127.0.0.1:5699:5683/udp
+  edge1:
+    image: iot-exchange-app:local
+    build: .
+    environment:
+      SERVICE_TOKEN: ${SERVICE_TOKEN}
+      JWT_SECRET: ${JWT_SECRET}
+      AMQP_URL: amqp://lab:${RABBITMQ_PASSWORD}@rabbitmq:5672/%2F
+      MQTT_HOST: mqtt
+      LOG_HOST: logstash
+      SERVICE_NAME: edge1
+      SERVICE_ROLE: edge1
+      DATABASE_URL: postgresql://edge1_app:${EDGE1_DB_PASSWORD}@postgres:5432/edge1
+      INFERENCE_MODEL_PATH: /service/inference-model.json
+    networks:
+    - lab
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+    - /tmp
+    cap_drop:
+    - ALL
+    security_opt:
+    - no-new-privileges:true
+    command:
+    - uvicorn
+    - exchange.api:app
+    - --host
+    - 0.0.0.0
+    - --port
+    - '8050'
+    - --no-access-log
+    - --ws-max-size
+    - '262144'
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://localhost:8050/health',timeout=3)
+      interval: 5s
+      timeout: 4s
+      retries: 20
+    ports:
+    - 127.0.0.1:8113:8050
+    volumes:
+    - ./infrastructure/inference-model.json:/service/inference-model.json:ro
+  edge2:
+    image: iot-exchange-app:local
+    build: .
+    environment:
+      SERVICE_TOKEN: ${SERVICE_TOKEN}
+      JWT_SECRET: ${JWT_SECRET}
+      AMQP_URL: amqp://lab:${RABBITMQ_PASSWORD}@rabbitmq:5672/%2F
+      MQTT_HOST: mqtt
+      LOG_HOST: logstash
+      SERVICE_NAME: edge2
+      SERVICE_ROLE: edge2
+      DATABASE_URL: postgresql://edge2_app:${EDGE2_DB_PASSWORD}@postgres:5432/edge2
+      ANOMALY_THRESHOLDS: '{"temperature":{"min":0,"max":40}}'
+    networks:
+    - lab
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+    - /tmp
+    cap_drop:
+    - ALL
+    security_opt:
+    - no-new-privileges:true
+    command:
+    - uvicorn
+    - exchange.api:app
+    - --host
+    - 0.0.0.0
+    - --port
+    - '8050'
+    - --no-access-log
+    - --ws-max-size
+    - '262144'
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://localhost:8050/health',timeout=3)
+      interval: 5s
+      timeout: 4s
+      retries: 20
+    ports:
+    - 127.0.0.1:8112:8050
+  edge3:
+    image: iot-exchange-app:local
+    build: .
+    environment:
+      SERVICE_TOKEN: ${SERVICE_TOKEN}
+      JWT_SECRET: ${JWT_SECRET}
+      AMQP_URL: amqp://lab:${RABBITMQ_PASSWORD}@rabbitmq:5672/%2F
+      MQTT_HOST: mqtt
+      LOG_HOST: logstash
+      SERVICE_NAME: edge3
+      SERVICE_ROLE: edge3
+      DATABASE_URL: postgresql://edge3_app:${EDGE3_DB_PASSWORD}@postgres:5432/edge3
+    networks:
+    - lab
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+    - /tmp
+    cap_drop:
+    - ALL
+    security_opt:
+    - no-new-privileges:true
+    command:
+    - uvicorn
+    - exchange.api:app
+    - --host
+    - 0.0.0.0
+    - --port
+    - '8050'
+    - --no-access-log
+    - --ws-max-size
+    - '262144'
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mqtt:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://localhost:8050/health',timeout=3)
+      interval: 5s
+      timeout: 4s
+      retries: 20
+    ports:
+    - 127.0.0.1:8114:8050
+    - 127.0.0.1:5700:5683/udp
+  worker:
+    image: iot-exchange-app:local
+    command:
+    - python
+    - -m
+    - exchange.worker
+    environment: *id001
+    networks:
+    - lab
+    depends_on:
+      exchange:
+        condition: service_healthy
+    restart: unless-stopped
+  postgres:
+    build: infrastructure/postgres
+    environment:
+      POSTGRES_USER: lab_owner
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      EXCHANGE_DB_PASSWORD: ${EXCHANGE_DB_PASSWORD}
+      AUTH_DB_PASSWORD: ${AUTH_DB_PASSWORD}
+      DEVICES_DB_PASSWORD: ${DEVICES_DB_PASSWORD}
+      ANALYTICS_DB_PASSWORD: ${ANALYTICS_DB_PASSWORD}
+      COLLECTOR_DB_PASSWORD: ${COLLECTOR_DB_PASSWORD}
+      EDGE1_DB_PASSWORD: ${EDGE1_DB_PASSWORD}
+      EDGE2_DB_PASSWORD: ${EDGE2_DB_PASSWORD}
+      EDGE3_DB_PASSWORD: ${EDGE3_DB_PASSWORD}
+    volumes:
+    - postgres-data:/var/lib/postgresql/data
+    networks:
+    - lab
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U lab_owner -d postgres
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  mqtt:
+    image: eclipse-mosquitto:2
+    ports:
+    - 127.0.0.1:1898:1883
+    volumes:
+    - ./infrastructure/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+    - mqtt-data:/mosquitto/data
+    networks:
+    - lab
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - mosquitto_pub -t lab/health -m ok
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  rabbitmq:
+    image: rabbitmq:3.13-alpine
+    environment:
+      RABBITMQ_DEFAULT_USER: lab
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+    ports:
+    - 127.0.0.1:5697:5672
+    volumes:
+    - rabbit-data:/var/lib/rabbitmq
+    networks:
+    - lab
+    healthcheck:
+      test:
+      - CMD
+      - rabbitmq-diagnostics
+      - -q
+      - ping
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  gateway:
+    image: nginx:1.27-alpine
+    ports:
+    - 127.0.0.1:8100:8080
+    volumes:
+    - ./infrastructure/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+    - lab
+    depends_on:
+      auth:
+        condition: service_healthy
+      devices:
+        condition: service_healthy
+      analytics:
+        condition: service_healthy
+      exchange:
+        condition: service_healthy
+  proa:
+    image: iot-exchange-app:local
+    command:
+    - uvicorn
+    - exchange.predictor:app
+    - --host
+    - 0.0.0.0
+    - --port
+    - '8070'
+    - --no-access-log
+    environment:
+      PROMETHEUS_URL: http://prometheus:9090
+      PROA_APPLY: 'false'
+      PROA_CAPACITY_RPS: '20'
+      PROA_MAX_REPLICAS: '4'
+    ports:
+    - 127.0.0.1:8170:8070
+    networks:
+    - lab
+  tests:
+    image: iot-exchange-app:local
+    build: .
+    profiles:
+    - test
+    user: '0'
+    environment:
+      SERVICE_TOKEN: ${SERVICE_TOKEN}
+      JWT_SECRET: ${JWT_SECRET}
+      AMQP_URL: amqp://lab:${RABBITMQ_PASSWORD}@rabbitmq:5672/%2F
+      MQTT_HOST: mqtt
+      LOG_HOST: logstash
+      DATABASE_URL: postgresql://exchange_app:${EXCHANGE_DB_PASSWORD}@postgres:5432/exchange
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    command:
+    - pytest
+    - -q
+    - tests
+    volumes:
+    - ./reports:/reports
+    networks:
+    - lab
+  fixtures:
+    image: iot-exchange-app:local
+    profiles:
+    - test
+    command:
+    - python
+    - scripts/fixtures.py
+    networks:
+    - lab
+networks:
+  lab: {}
+volumes:
+  postgres-data: {}
+  mqtt-data: {}
+  rabbit-data: {}

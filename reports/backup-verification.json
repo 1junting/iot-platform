@@ -1,0 +1,58 @@
+{
+  "exchange": {
+    "restored": true,
+    "archive_bytes": 34719,
+    "messages": 25,
+    "receipts": 0,
+    "deliveries": 39
+  },
+  "collector": {
+    "restored": true,
+    "archive_bytes": 23337,
+    "messages": 0,
+    "receipts": 31,
+    "deliveries": 0
+  },
+  "auth": {
+    "restored": true,
+    "archive_bytes": 13426,
+    "messages": 0,
+    "receipts": 0,
+    "deliveries": 0
+  },
+  "devices": {
+    "restored": true,
+    "archive_bytes": 13654,
+    "messages": 0,
+    "receipts": 0,
+    "deliveries": 0
+  },
+  "analytics": {
+    "restored": true,
+    "archive_bytes": 18333,
+    "messages": 0,
+    "receipts": 4,
+    "deliveries": 0
+  },
+  "edge1": {
+    "restored": true,
+    "archive_bytes": 19775,
+    "messages": 2,
+    "receipts": 0,
+    "deliveries": 2
+  },
+  "edge2": {
+    "restored": true,
+    "archive_bytes": 17554,
+    "messages": 2,
+    "receipts": 0,
+    "deliveries": 2
+  },
+  "edge3": {
+    "restored": true,
+    "archive_bytes": 15385,
+    "messages": 2,
+    "receipts": 0,
+    "deliveries": 2
+  }
+}

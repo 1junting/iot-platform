@@ -1,0 +1,56 @@
+time="2026-10-28T14:42:07+08:00" level=warning msg="Found orphan containers (iot-exchange-jaeger-1, iot-exchange-tier2-1, iot-exchange-tier3a-1, iot-exchange-tier3b-1, iot-exchange-registry-1, iot-exchange-k3s-1, iot-exchange-logstash-1, iot-exchange-kibana-1, iot-exchange-prometheus-1, iot-exchange-grafana-1, iot-exchange-elasticsearch-1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container iot-exchange-tests-run-89a601856e30 Creating 
+ Container iot-exchange-tests-run-89a601856e30 Created 
+{
+  "run": "e2e-d5674c5fa1",
+  "inputs": {
+    "http": {
+      "message_id": "e2e-d5674c5fa1-http",
+      "receiver_protocol": "http",
+      "receipts": 1
+    },
+    "mqtt": {
+      "message_id": "e2e-d5674c5fa1-mqtt",
+      "receiver_protocol": "mqtt",
+      "receipts": 1
+    },
+    "amqp": {
+      "message_id": "e2e-d5674c5fa1-amqp",
+      "receiver_protocol": "amqp",
+      "receipts": 1
+    },
+    "websocket": {
+      "message_id": "e2e-d5674c5fa1-websocket",
+      "receiver_protocol": "websocket",
+      "receipts": 2
+    },
+    "coap": {
+      "message_id": "e2e-d5674c5fa1-coap",
+      "receiver_protocol": "coap",
+      "receipts": 1
+    },
+    "modbus": {
+      "message_id": "a38517fa-be61-472e-acfd-fdf5f5e3a7cf",
+      "receiver_protocol": "modbus",
+      "receipt_id": "22ead2d7-c2dd-435d-b653-c081e80dc811"
+    },
+    "lwm2m": {
+      "message_id": "cdcb01dd-e150-48c7-b6e5-48d9a5b73248",
+      "receiver_protocol": "lwm2m",
+      "receipt_id": "d8719928-7847-44ad-a713-ae0e74450b8b"
+    }
+  },
+  "outputs": {
+    "mqtt": "23ef6e76-0892-4648-8503-9e02aa1419ae",
+    "websocket": "27e8fe15-a302-42d5-8f96-8932cc65762d",
+    "coap": "4d036984-03b3-4106-be10-89e5efbb7dc7",
+    "http": "981213ab-f4c5-423b-ad37-f9ba125b7c27",
+    "amqp": "d444b8aa-bfba-4485-8508-2270831f93af"
+  },
+  "checks": {
+    "dedupe_and_conflict": true,
+    "invalid_and_unknown_quarantined": true,
+    "jwt_gateway_devices": true,
+    "websocket_to_amqp_consumer_receipt": 1
+  }
+}

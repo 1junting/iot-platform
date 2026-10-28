@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata: {name: cluster-monitor, namespace: iot-exchange}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata: {name: cluster-monitor, namespace: iot-exchange}
+rules:
+  - apiGroups: ['']
+    resources: [pods]
+    verbs: [get, list, watch]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata: {name: cluster-monitor, namespace: iot-exchange}
+subjects: [{kind: ServiceAccount, name: cluster-monitor}]
+roleRef: {kind: Role, name: cluster-monitor, apiGroup: rbac.authorization.k8s.io}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata: {name: cluster-prometheus, namespace: iot-exchange}
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 5s
+    scrape_configs:
+      - job_name: cluster-exchange
+        kubernetes_sd_configs:
+          - role: pod
+            namespaces:
+              names: [iot-exchange]
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_pod_label_app]
+            regex: hdpcm-exchange
+            action: keep
+          - source_labels: [__meta_kubernetes_pod_container_port_name]
+            regex: http
+            action: keep
+          - source_labels: [__meta_kubernetes_pod_name]
+            target_label: pod
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: cluster-prometheus, namespace: iot-exchange}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: cluster-prometheus}}
+  template:
+    metadata: {labels: {app: cluster-prometheus}, annotations: {sidecar.istio.io/inject: 'false'}}
+    spec:
+      nodeSelector: {tier: '1'}
+      securityContext: {runAsUser: 65534, fsGroup: 65534}
+      serviceAccountName: cluster-monitor
+      containers:
+        - name: prometheus
+          image: prom/prometheus:v3.2.1
+          imagePullPolicy: IfNotPresent
+          args: ['--config.file=/etc/prometheus/prometheus.yml', '--storage.tsdb.path=/prometheus', '--storage.tsdb.retention.time=1d']
+          ports: [{name: http, containerPort: 9090}]
+          volumeMounts: [{name: config, mountPath: /etc/prometheus}, {name: data, mountPath: /prometheus}]
+          resources: {requests: {cpu: 50m, memory: 80Mi}, limits: {cpu: 300m, memory: 200Mi}}
+      volumes: [{name: config, configMap: {name: cluster-prometheus}}, {name: data, emptyDir: {}}]
+---
+apiVersion: v1
+kind: Service
+metadata: {name: cluster-prometheus, namespace: iot-exchange}
+spec:
+  type: NodePort
+  selector: {app: cluster-prometheus}
+  ports: [{name: http, port: 9090, targetPort: 9090, nodePort: 30090}]

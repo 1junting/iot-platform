@@ -1,0 +1,31 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+spec:
+  profile: minimal
+  meshConfig:
+    accessLogFile: /dev/stdout
+    enableTracing: true
+  components:
+    ingressGateways:
+      - name: istio-ingressgateway
+        enabled: true
+        k8s:
+          resources:
+            requests: {cpu: 50m, memory: 64Mi}
+            limits: {cpu: 300m, memory: 160Mi}
+          service:
+            type: NodePort
+            ports:
+              - {name: http2, port: 80, targetPort: 8080, nodePort: 30080}
+              - {name: status-port, port: 15021, targetPort: 15021}
+    pilot:
+      k8s:
+        resources:
+          requests: {cpu: 100m, memory: 128Mi}
+          limits: {cpu: 700m, memory: 300Mi}
+  values:
+    global:
+      proxy:
+        resources:
+          requests: {cpu: 10m, memory: 40Mi}
+          limits: {cpu: 200m, memory: 100Mi}

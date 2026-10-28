@@ -1,0 +1,54 @@
+services:
+  registry:
+    image: registry:2.8.3
+    ports: ['127.0.0.1:5098:5000']
+    volumes: [registry-data:/var/lib/registry]
+    networks: [lab]
+  k3s:
+    image: iot-exchange-k3s:local
+    build: infrastructure/k3s
+    hostname: exchange-tier1
+    privileged: true
+    command: [server, --disable=traefik, --disable=servicelb, --tls-san=k3s, --node-name=tier1, --node-label=tier=1, --write-kubeconfig-mode=600]
+    environment: {K3S_TOKEN: '${K3S_TOKEN}'}
+    tmpfs: [/run, /var/run]
+    volumes: [k3s-data:/var/lib/rancher/k3s]
+    ports: ['127.0.0.1:8120:30050', '127.0.0.1:8121:30080', '127.0.0.1:8171:30070']
+    networks: [lab]
+    mem_limit: 1400m
+  tier2:
+    image: iot-exchange-k3s:local
+    privileged: true
+    command: [agent, --node-name=tier2, --node-label=tier=2]
+    environment: {K3S_URL: 'https://k3s:6443', K3S_TOKEN: '${K3S_TOKEN}'}
+    tmpfs: [/run, /var/run]
+    volumes: [tier2-data:/var/lib/rancher/k3s]
+    networks: [lab]
+    depends_on: [k3s]
+    mem_limit: 700m
+  tier3a:
+    image: iot-exchange-k3s:local
+    privileged: true
+    command: [agent, --node-name=tier3a, --node-label=tier=3]
+    environment: {K3S_URL: 'https://k3s:6443', K3S_TOKEN: '${K3S_TOKEN}'}
+    tmpfs: [/run, /var/run]
+    volumes: [tier3a-data:/var/lib/rancher/k3s]
+    networks: [lab]
+    depends_on: [k3s]
+    mem_limit: 700m
+  tier3b:
+    image: iot-exchange-k3s:local
+    privileged: true
+    command: [agent, --node-name=tier3b, --node-label=tier=3]
+    environment: {K3S_URL: 'https://k3s:6443', K3S_TOKEN: '${K3S_TOKEN}'}
+    tmpfs: [/run, /var/run]
+    volumes: [tier3b-data:/var/lib/rancher/k3s]
+    networks: [lab]
+    depends_on: [k3s]
+    mem_limit: 700m
+volumes:
+  registry-data: {}
+  k3s-data: {}
+  tier2-data: {}
+  tier3a-data: {}
+  tier3b-data: {}

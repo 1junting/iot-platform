@@ -1,0 +1,13 @@
+groups:
+  - name: iot-exchange
+    rules:
+      - alert: ServiceUnavailable
+        expr: up == 0
+        for: 15s
+        labels: {severity: critical}
+        annotations: {summary: 'Service scrape failed'}
+      - alert: DeliveryBacklog
+        expr: exchange_pending > 100
+        for: 30s
+        labels: {severity: warning}
+        annotations: {summary: 'Pending delivery backlog exceeds 100'}
